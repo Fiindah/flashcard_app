@@ -1,6 +1,7 @@
 import 'package:flashcard_app/constant/app_color.dart';
 import 'package:flashcard_app/database/db_helper.dart';
-import 'package:flashcard_app/register_screen.dart';
+import 'package:flashcard_app/pages/register_screen.dart';
+import 'package:flashcard_app/pages/topic_list_page.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreenApp extends StatefulWidget {
@@ -93,6 +94,13 @@ class _LoginScreenAppState extends State<LoginScreenApp> {
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(content: Text("Login successful")),
                       );
+                      //navigator to TopicListPage
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => TopicListPage(),
+                        ),
+                      );
                     } else {
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(content: Text("Email atau password salah")),
@@ -150,7 +158,7 @@ class _LoginScreenAppState extends State<LoginScreenApp> {
                   ),
                   onPressed: () {
                     // Navigate to MeetLima screen menggunakan pushnamed
-                    Navigator.pushNamed(context, "/meet_2");
+                    // Navigator.pushNamed(context, "/meet_2");
                   },
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,

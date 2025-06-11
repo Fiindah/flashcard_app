@@ -1,4 +1,8 @@
-import 'package:flashcard_app/list_flashcard.dart';
+//import 'package:flashcard_app/pages/list_flashcard.dart';
+import 'package:flashcard_app/pages/topic_list_page.dart';
+// import 'package:flashcard_app/pages/login_screen.dart';
+// import 'package:flashcard_app/pages/register_screen.dart';
+// import 'package:flashcard_app/pages/splash_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -17,7 +21,6 @@ class MyApp extends StatelessWidget {
       //   //Harus didaftarkan dulu disini
       //   "/": (context) => SplashScreen(),
       //   "/login": (context) => LoginScreenApp(),
-      //   // "/meet_2": (context) => MeetDua(),
       //   LoginScreenApp.id: (context) => LoginScreenApp(),
       //   RegisterScreenApp.id: (context) => RegisterScreenApp(),
       // },
@@ -29,7 +32,7 @@ class MyApp extends StatelessWidget {
         fontFamily: 'Poppins',
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: ListFlashcardPage(),
+      home: TopicListPage(),
     );
   }
 }
