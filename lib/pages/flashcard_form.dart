@@ -40,7 +40,6 @@ class _FlashCardFormPageState extends State<FlashCardFormPage> {
       final answer = _answerController.text;
 
       if (widget.card == null) {
-        // Create new flashcard
         final newCard = FlashCard(
           question: question,
           answer: answer,
@@ -48,7 +47,6 @@ class _FlashCardFormPageState extends State<FlashCardFormPage> {
         );
         await DbHelper.insertFlashCard(newCard);
       } else {
-        // Update existing flashcard
         final updatedCard = FlashCard(
           id: widget.card!.id,
           question: question,
@@ -69,15 +67,16 @@ class _FlashCardFormPageState extends State<FlashCardFormPage> {
       appBar: AppBar(
         title: Text(
           widget.card == null ? 'Tambah Flashcard Baru' : 'Edit Flashcard',
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
-        backgroundColor: AppColor.myblue, // Added app bar color
-        foregroundColor: Colors.white, // Added foreground color for text/icons
+        backgroundColor: AppColor.myblue,
+        foregroundColor: Colors.white,
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Form(
-          key: _formKey, // Assign the form key
+          key: _formKey,
           child: Column(
             children: [
               TextFormField(
@@ -85,20 +84,17 @@ class _FlashCardFormPageState extends State<FlashCardFormPage> {
                 decoration: const InputDecoration(
                   labelText: 'Pertanyaan',
                   border: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(10.0),
-                    ), // Rounded borders
+                    borderRadius: BorderRadius.all(Radius.circular(10.0)),
                   ),
                   prefixIcon: Icon(Icons.question_mark),
                 ),
                 validator: (value) {
-                  // Add validation
                   if (value == null || value.isEmpty) {
                     return 'Pertanyaan tidak boleh kosong';
                   }
                   return null;
                 },
-                maxLines: null, // Allows multiple lines of input
+                maxLines: null,
               ),
               const SizedBox(height: 16),
               TextFormField(
@@ -106,39 +102,30 @@ class _FlashCardFormPageState extends State<FlashCardFormPage> {
                 decoration: const InputDecoration(
                   labelText: 'Jawaban',
                   border: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(10.0),
-                    ), // Rounded borders
+                    borderRadius: BorderRadius.all(Radius.circular(10.0)),
                   ),
                   prefixIcon: Icon(Icons.lightbulb_outline),
                 ),
                 validator: (value) {
-                  // Add validation
                   if (value == null || value.isEmpty) {
                     return 'Jawaban tidak boleh kosong';
                   }
                   return null;
                 },
-                maxLines: null, // Allows multiple lines of input
+                maxLines: null,
               ),
               const SizedBox(height: 24),
               SizedBox(
-                width: double.infinity, // Make button fill width
+                width: double.infinity,
                 child: ElevatedButton.icon(
                   onPressed: _saveFlashCard,
-                  icon: const Icon(Icons.save),
-                  label: Text(
-                    widget.card == null
-                        ? 'Simpan Flashcard'
-                        : 'Perbarui Flashcard',
-                  ),
+                  label: Text(widget.card == null ? 'Simpan' : 'Perbarui'),
                   style: ElevatedButton.styleFrom(
                     padding: const EdgeInsets.symmetric(vertical: 12),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
-                    ), // Rounded button
-                    backgroundColor:
-                        AppColor.myblue, // Use AppColor.myblue for consistency
+                    ),
+                    backgroundColor: AppColor.myblue,
                     foregroundColor: Colors.white,
                   ),
                 ),

@@ -5,8 +5,8 @@ import 'package:flashcard_app/database/db_helper.dart';
 import 'package:flashcard_app/helper/preference.dart';
 import 'package:flashcard_app/model/topic_model.dart';
 import 'package:flashcard_app/pages/halaman_auth.dart/login_screen.dart';
-import 'package:flashcard_app/pages/list_flashcard.dart'; // Import ListFlashcardPage
-import 'package:flashcard_app/pages/profile_page.dart';
+import 'package:flashcard_app/pages/list_flashcard_screen.dart'; // Import ListFlashcardPage
+import 'package:flashcard_app/pages/profile_screen.dart';
 import 'package:flutter/material.dart';
 
 class TopicListPage extends StatefulWidget {
@@ -109,7 +109,7 @@ class _TopicListPageState extends State<TopicListPage> {
   }
 
   int _selectedIndex = 0;
-  final List<Widget> _screen = [TopicListPage(), ProfilePage()];
+  // final List<Widget> _screen = [TopicListPage(), ProfilePage()];
 
   void _itemTapped(int index) {
     setState(() {

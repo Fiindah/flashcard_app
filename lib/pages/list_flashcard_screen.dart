@@ -3,7 +3,7 @@ import 'package:flashcard_app/database/db_helper.dart';
 import 'package:flashcard_app/model/flashcard_model.dart';
 import 'package:flashcard_app/model/topic_model.dart'; // Import the Topic model
 import 'package:flashcard_app/pages/flashcard_form.dart';
-import 'package:flashcard_app/pages/review_page.dart';
+import 'package:flashcard_app/pages/review_screen.dart';
 // Import the ReviewPage
 import 'package:flutter/material.dart';
 
