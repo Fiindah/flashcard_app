@@ -18,12 +18,7 @@ class _LoginScreenAppState extends State<LoginScreenApp> {
   final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Form(
-        key: _formKey,
-        child: Stack(children: [buildBackground(), buildLayer()]),
-      ),
-    );
+    return Scaffold(body: Form(key: _formKey, child: buildLayer()));
   }
 
   SafeArea buildLayer() {
@@ -91,9 +86,9 @@ class _LoginScreenAppState extends State<LoginScreenApp> {
                     );
                     if (userData != null) {
                       print('data ada ${userData.toJson()}');
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(content: Text("Login successful")),
-                      );
+                      ScaffoldMessenger.of(
+                        context,
+                      ).showSnackBar(SnackBar(content: Text("Login sukses")));
                       //navigator to TopicListPage
                       Navigator.pushReplacement(
                         context,
@@ -200,19 +195,6 @@ class _LoginScreenAppState extends State<LoginScreenApp> {
               ),
             ],
           ),
-        ),
-      ),
-    );
-  }
-
-  Container buildBackground() {
-    return Container(
-      height: double.infinity,
-      width: double.infinity,
-      decoration: const BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage("assets/images/background.png"),
-          fit: BoxFit.cover,
         ),
       ),
     );

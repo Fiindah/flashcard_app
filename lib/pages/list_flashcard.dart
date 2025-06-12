@@ -71,7 +71,7 @@ class _ListFlashcardPageState extends State<ListFlashcardPage> {
         centerTitle: true,
         title: Text(
           "Topik: ${widget.selectedTopic.name}",
-          style: TextStyle(fontSize: 18),
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
         ), // Display topic name
         foregroundColor: Colors.white,
         backgroundColor: AppColor.myblue,
@@ -136,7 +136,7 @@ class _ListFlashcardPageState extends State<ListFlashcardPage> {
                 },
                 icon: const Icon(Icons.play_arrow),
                 label: const Text(
-                  'Mulai Menghafal',
+                  'Mulai Belajar',
                   style: TextStyle(fontSize: 18),
                 ),
                 style: ElevatedButton.styleFrom(

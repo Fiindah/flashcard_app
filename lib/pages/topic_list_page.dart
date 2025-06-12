@@ -17,14 +17,13 @@ class TopicListPage extends StatefulWidget {
 }
 
 class _TopicListPageState extends State<TopicListPage> {
-  List<Topic> _topics = []; // List to hold all loaded topics
-  final TextEditingController _newTopicController =
-      TextEditingController(); // Controller for new topic input
+  List<Topic> _topics = [];
+  final TextEditingController _newTopicController = TextEditingController();
 
   @override
   void initState() {
     super.initState();
-    _loadTopics(); // Load topics when the page initializes
+    _loadTopics();
   }
 
   @override
@@ -34,15 +33,13 @@ class _TopicListPageState extends State<TopicListPage> {
     super.dispose();
   }
 
-  // Asynchronously loads all topics from the database
   void _loadTopics() async {
     final data = await DbHelper.getAllTopics();
     setState(() {
-      _topics = data; // Update the list of topics
+      _topics = data;
     });
   }
 
-  // Shows a dialog to add a new topic
   void _showAddTopicDialog() {
     showDialog(
       context: context,
@@ -58,7 +55,7 @@ class _TopicListPageState extends State<TopicListPage> {
             TextButton(
               child: const Text('Batal'),
               onPressed: () {
-                _newTopicController.clear(); // Clear text when cancelled
+                _newTopicController.clear();
                 Navigator.of(context).pop();
               },
             ),
@@ -68,8 +65,8 @@ class _TopicListPageState extends State<TopicListPage> {
                 final topicName = _newTopicController.text.trim();
                 if (topicName.isNotEmpty) {
                   final newTopic = Topic(name: topicName);
-                  await DbHelper.insertTopic(newTopic); // Insert topic into DB
-                  _newTopicController.clear(); // Clear text after adding
+                  await DbHelper.insertTopic(newTopic);
+                  _newTopicController.clear();
                   _loadTopics(); // Reload topics to update the UI
                   Navigator.of(context).pop();
                 }
@@ -111,7 +108,6 @@ class _TopicListPageState extends State<TopicListPage> {
     );
   }
 
-  @override
   int _selectedIndex = 0;
   final List<Widget> _screen = [TopicListPage(), ProfilePage()];
 
@@ -192,9 +188,15 @@ class _TopicListPageState extends State<TopicListPage> {
       appBar: AppBar(
         title: const Text(
           'Topik Flashcard',
-          style: TextStyle(color: AppColor.myblue, fontSize: 18),
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 18,
+            fontWeight: FontWeight.bold,
+          ),
         ),
         centerTitle: true,
+        foregroundColor: Colors.white,
+        backgroundColor: AppColor.myblue,
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,

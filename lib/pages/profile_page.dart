@@ -68,7 +68,7 @@ class _ProfilePageState extends State<ProfilePage> {
           ),
           SizedBox(height: 10),
           Text(
-            'Aplikasi ini dibuat untuk memenuhi tugas ke-13 mobile programming dengan Flutter.',
+            'Aplikasi flashcard ini digunakan untuk membantu proses belajar dan menghafal.',
             textAlign: TextAlign.center,
             style: TextStyle(fontSize: 16, color: Colors.black87),
           ),

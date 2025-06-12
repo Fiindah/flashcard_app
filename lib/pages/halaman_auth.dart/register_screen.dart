@@ -127,7 +127,7 @@ class _RegisterScreenAppState extends State<RegisterScreenApp> {
                         );
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
-                            content: Text("Registeration Successful!"),
+                            content: Text("Register Berhasil!"),
                             backgroundColor: Colors.green,
                           ),
                         );

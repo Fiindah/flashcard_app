@@ -4,14 +4,10 @@ import 'package:flashcard_app/model/flashcard_model.dart';
 import 'package:flutter/material.dart';
 
 class FlashCardFormPage extends StatefulWidget {
-  final FlashCard? card; // Optional: for editing an existing card
-  final int? topicId; // New: to associate new cards with a topic
+  final FlashCard? card;
+  final int? topicId;
 
-  const FlashCardFormPage({
-    super.key,
-    this.card,
-    this.topicId,
-  }); // Modified constructor
+  const FlashCardFormPage({super.key, this.card, this.topicId});
 
   @override
   State<FlashCardFormPage> createState() => _FlashCardFormPageState();
@@ -20,12 +16,11 @@ class FlashCardFormPage extends StatefulWidget {
 class _FlashCardFormPageState extends State<FlashCardFormPage> {
   final TextEditingController _questionController = TextEditingController();
   final TextEditingController _answerController = TextEditingController();
-  final _formKey = GlobalKey<FormState>(); // Key for form validation
+  final _formKey = GlobalKey<FormState>();
 
   @override
   void initState() {
     super.initState();
-    // If a card is passed, populate the fields for editing
     if (widget.card != null) {
       _questionController.text = widget.card!.question;
       _answerController.text = widget.card!.answer;
@@ -41,7 +36,6 @@ class _FlashCardFormPageState extends State<FlashCardFormPage> {
 
   void _saveFlashCard() async {
     if (_formKey.currentState!.validate()) {
-      // Validate the form
       final question = _questionController.text;
       final answer = _answerController.text;
 
@@ -50,7 +44,7 @@ class _FlashCardFormPageState extends State<FlashCardFormPage> {
         final newCard = FlashCard(
           question: question,
           answer: answer,
-          topicId: widget.topicId, // Assign the topic ID from the widget
+          topicId: widget.topicId,
         );
         await DbHelper.insertFlashCard(newCard);
       } else {
@@ -61,11 +55,11 @@ class _FlashCardFormPageState extends State<FlashCardFormPage> {
           answer: answer,
           repeatCard: widget.card!.repeatCard,
           remembered: widget.card!.remembered,
-          topicId: widget.card!.topicId, // Maintain the original topic ID
+          topicId: widget.card!.topicId,
         );
         await DbHelper.updateFlashCard(updatedCard);
       }
-      Navigator.pop(context); // Go back to the previous page
+      Navigator.pop(context);
     }
   }
 
