@@ -100,7 +100,14 @@ class _ListFlashcardPageState extends State<ListFlashcardPage> {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            Text("Mulai langkah pertamamu"),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+              child: Text(
+                "Buat dan Mulai Langkah Pertamamu",
+                style: TextStyle(fontSize: 16, color: Colors.black87),
+                textAlign: TextAlign.center,
+              ),
+            ),
             // Add the "Mulai Menghafal" button here
             SizedBox(
               width: double.infinity, // Make the button full width

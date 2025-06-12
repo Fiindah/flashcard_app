@@ -1,6 +1,6 @@
 import 'package:flashcard_app/constant/app_color.dart';
 import 'package:flashcard_app/database/db_helper.dart';
-import 'package:flashcard_app/pages/register_screen.dart';
+import 'package:flashcard_app/pages/halaman_auth.dart/register_screen.dart';
 import 'package:flashcard_app/pages/topic_list_page.dart';
 import 'package:flutter/material.dart';
 

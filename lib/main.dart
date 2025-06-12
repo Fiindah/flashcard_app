@@ -1,5 +1,8 @@
 //import 'package:flashcard_app/pages/list_flashcard.dart';
-import 'package:flashcard_app/pages/topic_list_page.dart';
+import 'package:flashcard_app/pages/halaman_auth.dart/login_screen.dart';
+import 'package:flashcard_app/pages/halaman_auth.dart/register_screen.dart';
+import 'package:flashcard_app/pages/splash_screen.dart';
+// import 'package:flashcard_app/pages/topic_list_page.dart';
 // import 'package:flashcard_app/pages/login_screen.dart';
 // import 'package:flashcard_app/pages/register_screen.dart';
 // import 'package:flashcard_app/pages/splash_screen.dart';
@@ -16,14 +19,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // initialRoute: "/",
-      // routes: {
-      //   //Harus didaftarkan dulu disini
-      //   "/": (context) => SplashScreen(),
-      //   "/login": (context) => LoginScreenApp(),
-      //   LoginScreenApp.id: (context) => LoginScreenApp(),
-      //   RegisterScreenApp.id: (context) => RegisterScreenApp(),
-      // },
+      initialRoute: "/",
+      routes: {
+        //Harus didaftarkan dulu disini
+        "/": (context) => SplashScreen(),
+        "/login": (context) => LoginScreenApp(),
+        LoginScreenApp.id: (context) => LoginScreenApp(),
+        RegisterScreenApp.id: (context) => RegisterScreenApp(),
+      },
       debugShowCheckedModeBanner: false,
       title: 'Flashcard App',
 
@@ -32,7 +35,7 @@ class MyApp extends StatelessWidget {
         fontFamily: 'Poppins',
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: TopicListPage(),
+      // home: TopicListPage(),
     );
   }
 }

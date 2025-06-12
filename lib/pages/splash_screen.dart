@@ -1,5 +1,7 @@
 import 'package:flashcard_app/constant/app_image.dart';
 import 'package:flashcard_app/constant/app_style.dart';
+import 'package:flashcard_app/helper/preference.dart';
+import 'package:flashcard_app/pages/halaman_auth.dart/login_screen.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -10,31 +12,31 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  // void changePage() {
-  //   Future.delayed(Duration(seconds: 3), () async {
-  //     bool isLogin = await PreferenceHandler.getLogin();
-  //     print("isLogin: $isLogin");
-  //     if (isLogin) {
-  //       return Navigator.pushNamedAndRemoveUntil(
-  //         context,
-  //         LoginScreenApp.id,
-  //         (route) => false,
-  //       );
-  //     } else {
-  //       Navigator.pushNamedAndRemoveUntil(
-  //         context,
-  //         LoginScreenApp.id,
-  //         (route) => false,
-  //       );
-  //     }
-  //   });
-  // }
+  void changePage() {
+    Future.delayed(Duration(seconds: 3), () async {
+      bool isLogin = await PreferenceHandler.getLogin();
+      print("isLogin: $isLogin");
+      if (isLogin) {
+        return Navigator.pushNamedAndRemoveUntil(
+          context,
+          LoginScreenApp.id,
+          (route) => false,
+        );
+      } else {
+        Navigator.pushNamedAndRemoveUntil(
+          context,
+          LoginScreenApp.id,
+          (route) => false,
+        );
+      }
+    });
+  }
 
-  // @override
-  // void initState() {
-  //   changePage();
-  //   super.initState();
-  // }
+  @override
+  void initState() {
+    changePage();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {

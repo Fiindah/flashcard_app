@@ -1,8 +1,4 @@
 import 'package:flashcard_app/constant/app_color.dart';
-import 'package:flashcard_app/constant/app_image.dart';
-import 'package:flashcard_app/constant/app_style.dart';
-import 'package:flashcard_app/helper/preference.dart';
-import 'package:flashcard_app/pages/login_screen.dart';
 import 'package:flutter/material.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -13,96 +9,184 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
-  int _selectedIndex = 0;
-  static const List<Widget> _screen = [
-    // Center(child: Text("Halaman 1")),
-    // // Meet14a(),
-    // // Meet14b(),
-    // // Center(child: Text("Halaman 2")),
-    // // Meet12AInputWidget(),
-    // Center(child: Text("Halaman 3")),
-  ];
-  void _itemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-    print("Halaman saat ini : $_selectedIndex");
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text(
+          "Profil Aplikasi",
+          style: TextStyle(fontSize: 18),
+        ), // Display topic name
+        foregroundColor: Colors.white,
+        backgroundColor: AppColor.myblue,
+      ),
+      body: SingleChildScrollView(
+        child: Center(
+          child: Column(
+            children: [
+              const SizedBox(height: 40),
+              const CircleAvatar(
+                radius: 40,
+                backgroundImage: AssetImage("assets/images/foto.jpg"),
+                backgroundColor: Colors.indigoAccent,
+              ),
+              const SizedBox(height: 20),
+              buildContainer(),
+            ],
+          ),
+        ),
+      ),
+    );
   }
+
+  Container buildContainer() {
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 20),
+      padding: const EdgeInsets.all(20),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(16),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.3),
+            blurRadius: 10,
+            offset: const Offset(0, 5),
+          ),
+        ],
+      ),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: const [
+          Text(
+            'Flashcard App',
+            style: TextStyle(
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+              color: AppColor.myblue,
+            ),
+          ),
+          SizedBox(height: 10),
+          Text(
+            'Aplikasi ini dibuat untuk memenuhi tugas ke-13 mobile programming dengan Flutter.',
+            textAlign: TextAlign.center,
+            style: TextStyle(fontSize: 16, color: Colors.black87),
+          ),
+          Divider(height: 30, thickness: 1),
+          SizedBox(height: 20),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text('Dibuat oleh:', style: TextStyle(fontSize: 16)),
+              Text('Endah FN', style: TextStyle(fontSize: 16)),
+            ],
+          ),
+          Divider(height: 30, thickness: 1),
+          SizedBox(height: 20),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text('Versi:', style: TextStyle(fontSize: 16)),
+              Text('1.0.0', style: TextStyle(fontSize: 16)),
+            ],
+          ),
+          Divider(height: 30, thickness: 1),
+        ],
+      ),
+    );
+  }
+}
+
+/**
+ * import 'package:flutter/material.dart';
+
+class ProfilApp extends StatelessWidget {
+  const ProfilApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(centerTitle: true, title: Text("Menu Drawer")),
-      drawer: Drawer(
-        child: ListView(
-          children: [
-            DrawerHeader(
-              decoration: BoxDecoration(color: AppColor.myblue),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  CircleAvatar(
-                    radius: 40,
-                    backgroundColor: Colors.white,
-                    backgroundImage: AssetImage(AppImage.foto),
-                  ),
-                  Text(
-                    "Endah Fitria",
-                    style: AppStyle.fontRegular(fontSize: 16),
-                  ),
-                  Text(
-                    "endahfitri@gmail.com",
-                    style: AppStyle.fontBold(fontSize: 16),
-                  ),
-                ],
+      // backgroundColor: Colors.teal.shade50,
+      appBar: AppBar(
+        title: const Text('Profil Aplikasi'),
+        backgroundColor: Colors.teal,
+        foregroundColor: Colors.white,
+        centerTitle: true,
+      ),
+
+      body: SingleChildScrollView(
+        child: Center(
+          child: Column(
+            children: [
+              const SizedBox(height: 40),
+              const CircleAvatar(
+                radius: 40,
+                backgroundImage: AssetImage("assets/images/foto.jpg"),
+                backgroundColor: Colors.indigoAccent,
               ),
-            ),
-            ListTile(
-              leading: Icon(Icons.home, color: AppColor.myblue),
-              title: Text("Home", style: AppStyle.fontRegular(fontSize: 14)),
-              onTap: () {
-                _itemTapped(0);
-                Navigator.pop(context); // Close the drawer
-              },
-            ),
-            ListTile(
-              leading: Icon(Icons.home, color: AppColor.myblue),
-              title: Text(
-                "List dan Map",
-                style: AppStyle.fontRegular(fontSize: 14),
-              ),
-              onTap: () {
-                _itemTapped(1);
-                Navigator.pop(context); // Close the drawer
-              },
-            ),
-            ListTile(
-              leading: Icon(Icons.key, color: AppColor.myblue),
-              title: Text(
-                "Validator",
-                style: AppStyle.fontRegular(fontSize: 14),
-              ),
-              onTap: () {
-                _itemTapped(2);
-                Navigator.pop(context); // Close the drawer
-              },
-            ),
-            ListTile(
-              leading: Icon(Icons.logout, color: AppColor.orange),
-              title: Text("Keluar", style: AppStyle.fontRegular(fontSize: 14)),
-              onTap: () {
-                PreferenceHandler.deleteLogin();
-                Navigator.pushAndRemoveUntil(
-                  context,
-                  MaterialPageRoute(builder: (context) => LoginScreenApp()),
-                  (route) => false,
-                );
-              },
-            ),
-          ],
+              const SizedBox(height: 20),
+              buildContainer(),
+            ],
+          ),
         ),
       ),
-      body: _screen[_selectedIndex],
+    );
+  }
+
+  Container buildContainer() {
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 20),
+      padding: const EdgeInsets.all(20),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(16),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.3),
+            blurRadius: 10,
+            offset: const Offset(0, 5),
+          ),
+        ],
+      ),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: const [
+          Text(
+            'FlutterApp',
+            style: TextStyle(
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+              color: Colors.teal,
+            ),
+          ),
+          SizedBox(height: 10),
+          Text(
+            'Aplikasi ini dibuat untuk memenuhi tugas mobile programming dengan Flutter.',
+            textAlign: TextAlign.center,
+            style: TextStyle(fontSize: 16, color: Colors.black87),
+          ),
+          Divider(height: 30, thickness: 1),
+          SizedBox(height: 20),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text('Dibuat oleh:', style: TextStyle(fontSize: 16)),
+              Text('Endah FN', style: TextStyle(fontSize: 16)),
+            ],
+          ),
+          Divider(height: 30, thickness: 1),
+          SizedBox(height: 20),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text('Versi:', style: TextStyle(fontSize: 16)),
+              Text('1.0.0', style: TextStyle(fontSize: 16)),
+            ],
+          ),
+          Divider(height: 30, thickness: 1),
+        ],
+      ),
     );
   }
 }
+ */
