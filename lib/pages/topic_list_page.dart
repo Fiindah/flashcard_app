@@ -187,7 +187,7 @@ class _TopicListPageState extends State<TopicListPage> {
       ),
       appBar: AppBar(
         title: const Text(
-          'Topik Flashcard',
+          'Flashcard',
           style: TextStyle(
             color: Colors.white,
             fontSize: 18,
@@ -220,10 +220,13 @@ class _TopicListPageState extends State<TopicListPage> {
           ),
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-            child: Text(
-              "Buat dan kuasai setiap materi pembelajaran dengan aplikasi flashcard yang mudah digunakan.",
-              style: TextStyle(fontSize: 16, color: Colors.black87),
-              textAlign: TextAlign.center,
+            child: SizedBox(
+              width: 300,
+              child: Text(
+                "Buat dan kuasai setiap materi pembelajaran dengan aplikasi flashcard yang mudah digunakan.",
+                style: TextStyle(fontSize: 16, color: Colors.black87),
+                textAlign: TextAlign.center,
+              ),
             ),
           ),
           const SizedBox(height: 20),
