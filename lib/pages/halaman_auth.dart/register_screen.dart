@@ -21,12 +21,7 @@ class _RegisterScreenAppState extends State<RegisterScreenApp> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Form(
-        key: _formKey,
-        child: Stack(children: [buildBackground(), buildLayer()]),
-      ),
-    );
+    return Scaffold(body: Form(key: _formKey, child: buildLayer()));
   }
 
   SafeArea buildLayer() {
@@ -185,19 +180,6 @@ class _RegisterScreenAppState extends State<RegisterScreenApp> {
               ],
             ),
           ),
-        ),
-      ),
-    );
-  }
-
-  Container buildBackground() {
-    return Container(
-      height: double.infinity,
-      width: double.infinity,
-      decoration: const BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage("assets/images/background.png"),
-          fit: BoxFit.cover,
         ),
       ),
     );

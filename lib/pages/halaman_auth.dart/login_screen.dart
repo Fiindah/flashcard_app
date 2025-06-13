@@ -58,12 +58,7 @@ class _LoginScreenAppState extends State<LoginScreenApp> {
               Align(
                 alignment: Alignment.centerRight,
                 child: TextButton(
-                  onPressed: () {
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(builder: (context) => MeetSebelas()),
-                    // );
-                  },
+                  onPressed: () {},
                   child: Text(
                     "Forgot Password?",
                     style: TextStyle(
@@ -86,9 +81,12 @@ class _LoginScreenAppState extends State<LoginScreenApp> {
                     );
                     if (userData != null) {
                       print('data ada ${userData.toJson()}');
-                      ScaffoldMessenger.of(
-                        context,
-                      ).showSnackBar(SnackBar(content: Text("Login sukses")));
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text("Login Sukses"),
+                          backgroundColor: Colors.green,
+                        ),
+                      );
                       //navigator to TopicListPage
                       Navigator.pushReplacement(
                         context,
@@ -98,7 +96,10 @@ class _LoginScreenAppState extends State<LoginScreenApp> {
                       );
                     } else {
                       ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(content: Text("Email atau password salah")),
+                        SnackBar(
+                          content: Text("Email atau password salah"),
+                          backgroundColor: Colors.red,
+                        ),
                       );
                     }
                   },
@@ -115,57 +116,6 @@ class _LoginScreenAppState extends State<LoginScreenApp> {
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
                     ),
-                  ),
-                ),
-              ),
-              height(16),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Expanded(
-                    child: Container(
-                      margin: EdgeInsets.only(right: 8),
-                      height: 1,
-                      color: Colors.white,
-                    ),
-                  ),
-                  Text(
-                    "Or Sign In With",
-                    style: TextStyle(fontSize: 12, color: AppColor.gray88),
-                  ),
-                  Expanded(
-                    child: Container(
-                      margin: EdgeInsets.only(left: 8),
-
-                      height: 1,
-                      color: Colors.white,
-                    ),
-                  ),
-                ],
-              ),
-
-              height(16),
-              SizedBox(
-                height: 48,
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.white,
-                  ),
-                  onPressed: () {
-                    // Navigate to MeetLima screen menggunakan pushnamed
-                    // Navigator.pushNamed(context, "/meet_2");
-                  },
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Image.asset(
-                        "assets/images/icon_google.png",
-                        height: 16,
-                        width: 16,
-                      ),
-                      width(4),
-                      Text("Google"),
-                    ],
                   ),
                 ),
               ),
