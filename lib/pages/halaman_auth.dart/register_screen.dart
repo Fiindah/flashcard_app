@@ -128,13 +128,6 @@ class _RegisterScreenAppState extends State<RegisterScreenApp> {
                         );
                         Navigator.pop(context);
                       }
-                      // Navigate to MeetLima screen menggunakan Push
-                      // Navigator.push(
-                      //   context,
-                      //   MaterialPageRoute(builder: (context) => const MeetLima()),
-                      // );
-                      // PreferenceHandler.saveLogin(true);
-                      // Navigator.pushNamed(context, MeetDuaBelasB.id);
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: AppColor.blueButton,

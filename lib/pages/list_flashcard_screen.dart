@@ -134,7 +134,6 @@ class _ListFlashcardPageState extends State<ListFlashcardPage> {
                     );
                   }
                 },
-                icon: const Icon(Icons.play_arrow),
                 label: const Text(
                   'Mulai Belajar',
                   style: TextStyle(fontSize: 18),
