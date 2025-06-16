@@ -1,11 +1,6 @@
-//import 'package:flashcard_app/pages/list_flashcard.dart';
-import 'package:flashcard_app/pages/halaman_auth.dart/login_screen.dart';
-import 'package:flashcard_app/pages/halaman_auth.dart/register_screen.dart';
+import 'package:flashcard_app/pages/halaman_auth/login_screen.dart';
+import 'package:flashcard_app/pages/halaman_auth/register_screen.dart';
 import 'package:flashcard_app/pages/splash_screen.dart';
-// import 'package:flashcard_app/pages/topic_list_page.dart';
-// import 'package:flashcard_app/pages/login_screen.dart';
-// import 'package:flashcard_app/pages/register_screen.dart';
-// import 'package:flashcard_app/pages/splash_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {

@@ -1,7 +1,7 @@
 import 'package:flashcard_app/constant/app_image.dart';
 import 'package:flashcard_app/constant/app_style.dart';
 import 'package:flashcard_app/helper/preference.dart';
-import 'package:flashcard_app/pages/halaman_auth.dart/login_screen.dart';
+import 'package:flashcard_app/pages/halaman_auth/login_screen.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {

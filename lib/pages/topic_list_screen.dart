@@ -4,7 +4,7 @@ import 'package:flashcard_app/constant/app_style.dart';
 import 'package:flashcard_app/database/db_helper.dart';
 import 'package:flashcard_app/helper/preference.dart';
 import 'package:flashcard_app/model/topic_model.dart';
-import 'package:flashcard_app/pages/halaman_auth.dart/login_screen.dart';
+import 'package:flashcard_app/pages/halaman_auth/login_screen.dart';
 import 'package:flashcard_app/pages/list_flashcard_screen.dart'; // Import ListFlashcardPage
 import 'package:flashcard_app/pages/profile_screen.dart';
 import 'package:flutter/material.dart';
